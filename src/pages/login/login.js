@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { navigate } from '@reach/router'
 
 import Input from '../../components/input/input'
+import Button from '../../components/button'
 
 import './styles.scss'
 
@@ -16,7 +17,8 @@ const Login = ({ loginStorageKey, loginStorageValue }) => {
     }
    }, [loginStorageKey, loginStorageValue])
 
-  const onSubmit = () => {
+  const onSubmit = e => {
+    e.preventDefault()
     if(email === 'test@test.com' && password === 'test') {
       localStorage.setItem(loginStorageKey, loginStorageValue)
       navigate('/')
@@ -25,13 +27,15 @@ const Login = ({ loginStorageKey, loginStorageValue }) => {
 
   return (
     <div className="login-page">
-      <div className="form-field">
-        <Input name="email" type="email" value={email} onChange={value => setEmail(value)} />
-      </div>
-      <div className="form-field">
-        <Input name="password" type="password" value={password} onChange={value => setPassword(value)} />
-       </div>
-      <button onClick={onSubmit} >Login</button>
+      <form onSubmit={onSubmit}>
+        <div className="form-field">
+          <Input name="email" type="email" value={email} onChange={value => setEmail(value)} required autoFocus />
+        </div>
+        <div className="form-field">
+          <Input name="password" type="password" value={password} onChange={value => setPassword(value)} required autoFocus />
+        </div>
+        <Button type="submit">Login</Button>
+      </form>
     </div>
   )
 }
