@@ -1,0 +1,24 @@
+@import '../../styles/variables';
+.add-task-form {
+  padding: 0 8px;
+  margin-bottom: 16px;
+
+  .line {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+    margin: 0 -8px;
+  }
+
+  .col {
+    padding: 0 8px;
+    flex: 1 1 auto;
+  }
+  .btn-col {
+    padding: 0 8px;
+    flex: 0 0 $btn-min-width;
+    .btn {
+      height: 100%;
+    }
+  }
+}
