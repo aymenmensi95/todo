@@ -1,50 +1,55 @@
 
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link } from '@reach/router'
 
+import DeleteBtn from '../../components/delete-btn/delete-btn'
 import AddTaskForm from '../../components/add-task-form'
 import Footer from '../../components/footer/footer'
 
 import './styles.scss'
 
+const DATA_STORAGE_KEY = 'todo-data-test'
+
 const Home = () => {
-  const [taskList, setTaskList] = useState([
-    {
-      id: 1,
-      title: 'hello task 1',
-      description: 'this is a test task',
-      completed: true,
-    },
-    {
-      id: 2,
-      title: 'hello task 2',
-      description: 'this is a second test task',
-      completed: false,
-    }
-  ])
+  const [taskList, setTaskList] = useState([])
   const [ASC, setASC] = useState(true)
   const [toEdit, setToEdit] = useState(null)
- 
+
+  useEffect(() => {
+    const data = localStorage.getItem(DATA_STORAGE_KEY)
+    setTaskList(data ? JSON.parse(data) : [])
+  }, [])
+
+  const saveData = data => {
+    localStorage.setItem(DATA_STORAGE_KEY, JSON.stringify(data))
+  }
+
 
   const handleCheck = id => {
-    setTaskList(prev => prev.map(t => {
+    const dataToSave = taskList.map(t => {
       if(id === t.id) {
         return {...t, completed: !t.completed}
       }
       return t
-    }))
+    })
+    setTaskList(dataToSave)
+    saveData(dataToSave)
   }
 
   const deleteTask = id => {
-    setTaskList(prev => prev.filter(t => id !== t.id))
+    const dataToSave = taskList.filter(t => id !== t.id)
+    setTaskList(dataToSave)
+    saveData(dataToSave)
   }
 
   const addTask = data => {
-    setTaskList(prev => toEdit ? prev.map(t => t.id === toEdit.id ? ({...t, ...data}) : t) : [...prev,  {
-      id: prev.length + 1,
+    const dataToSave = toEdit ? taskList.map(t => t.id === toEdit.id ? ({...t, ...data}) : t) : [...taskList,  {
+      id: taskList.length + 1,
       ...data,
       completed: false,
-    }])
+    }]
+    setTaskList(dataToSave)
+    saveData(dataToSave)
     setToEdit(null)
   }
 
@@ -57,7 +62,7 @@ const Home = () => {
     <div key={index} className="task">
       <span className="title">{task.title} {task.description  && <small>{task.description}</small>}</span>
       <div className="actions">
-        <span className="delete" onClick={() => deleteTask(task.id)}>Delete</span>
+        <DeleteBtn className="delete" onConfirm={() => deleteTask(task.id)}>Delete</DeleteBtn>
         <span className="edit" onClick={() => setToEdit(task)}>Edit</span>
         <input type="checkbox" checked={task.completed} onChange={() => handleCheck(task.id)} />
       </div>

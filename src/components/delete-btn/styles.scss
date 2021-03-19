@@ -1,0 +1,62 @@
+@import '../../styles/variables';
+
+.delete-btn {
+  position: relative;
+
+  .pop-over {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 50%;
+    z-index: 10;
+    transform: translateX(-50%);
+    background: $white;
+    color: $black;
+    border: 1px solid $border-color;
+    width: 200px;
+    padding: 16px;
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    flex-flow: column wrap;
+    box-shadow: 1px 1px 5px 0 rgba($black, 0.16);
+
+    .question {
+      margin-bottom: 16px;
+    }
+
+    .arrow {
+      position: absolute;
+      top: -5px;
+      left: 50%;
+      z-index: 10;
+      border-top: 1px solid $border-color;
+      border-left: 1px solid $border-color;
+      background-color: $white;
+      transform: rotateZ(45deg);
+      width: 10px;
+      height: 10px;
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      span {
+        margin: 0 8px;
+
+        &:hover {
+          text-decoration: underline;
+        }
+
+        &.yes {
+          color: $success;
+        }
+
+        &.no {
+          color: $danger;
+        }
+      }
+    }
+  }
+}
