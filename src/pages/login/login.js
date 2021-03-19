@@ -3,6 +3,7 @@ import { navigate } from '@reach/router'
 
 import Input from '../../components/input/input'
 import Button from '../../components/button'
+import Footer from '../../components/footer/footer'
 
 import './styles.scss'
 
@@ -28,13 +29,11 @@ const Login = ({ loginStorageKey, loginStorageValue }) => {
   return (
     <div className="login-page">
       <form onSubmit={onSubmit}>
-        <div className="form-field">
-          <Input name="email" type="email" value={email} onChange={value => setEmail(value)} required autoFocus />
-        </div>
-        <div className="form-field">
-          <Input name="password" type="password" value={password} onChange={value => setPassword(value)} required autoFocus />
-        </div>
+        <h1>Welcome To ToDo</h1>
+        <Input name="email" placeholder="E-mail" type="email" value={email} onChange={value => setEmail(value)} required autoFocus />
+        <Input name="password" placeholder="Password" className="password-input" type="password" value={password} onChange={value => setPassword(value)} required autoFocus />
         <Button type="submit">Login</Button>
+        <Footer />
       </form>
     </div>
   )

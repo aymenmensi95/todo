@@ -1,0 +1,13 @@
+@import '../../styles/variables';
+
+footer {
+  margin-top: 16px;
+  padding: 8px;
+  font-size: 14px;
+  text-align: right;
+  font-weight: 500;
+  color: rgba($black, 0.54);
+  a {
+    color: inherit;
+  }
+}

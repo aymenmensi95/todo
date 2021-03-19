@@ -12,12 +12,17 @@ body {
   color: $black;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 .section-title {
   font-size: 24px;
   line-height: 1;
   color: $black;
   padding: 0 0 8px;
   border-bottom: 1px solid $border-color;
+  color: $black;
 }
 
 .btn {
@@ -41,6 +46,11 @@ body {
 
   &:hover {
     background: darken($black, 10);
+  }
+
+  &[disabled] {
+    filter: grayscale(1);
+    pointer-events: none;
   }
 
   &.sm {
@@ -90,9 +100,20 @@ body {
     padding: 10px 16px;
     border-radius: 25px;
     flex: 1 1 auto;
+    background: $white;
+    color: $black;
+
+    &::placeholder {
+      color: rgba($black, 0.8);
+    }
+
+    &:-webkit-autofill {
+      -webkit-text-fill-color: $black;
+      box-shadow: 0 0 0px 1000px $white inset;
+    }
   }
 
   .password-btn {
-    border-radius: 0 $btn-radius $btn-radius 0;
+    border-radius: 0;
   }
 }
