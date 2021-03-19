@@ -3,6 +3,7 @@ import { useMemo, useState } from 'react'
 import { Link } from '@reach/router'
 
 import AddTaskForm from '../../components/add-task-form'
+import Footer from '../../components/footer/footer'
 
 import './styles.scss'
 
@@ -82,6 +83,7 @@ const Home = () => {
             {renderTasks(completedTasks)}
           </section>
         </div>
+        <Footer />
       </div>
     </div>
   )
