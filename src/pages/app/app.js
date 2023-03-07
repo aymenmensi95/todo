@@ -1,6 +1,6 @@
 import * as React from "react";
 
-// import { Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 // import Login from "../login";
 // import Logout from "../logout";
@@ -14,12 +14,8 @@ const LOGIN_STORAGE_VALUE = "logged";
 const App = () => {
   return (
     <div className="app">
-      <Home
-        loginStorageKey={LOGIN_STORAGE_KEY}
-        loginStorageValue={LOGIN_STORAGE_VALUE}
-      />{" "}
-      {/* <Routes>
-        <Route
+      <Routes>
+        {/*  <Route
           path="/login"
           element={
             <Login
@@ -31,7 +27,7 @@ const App = () => {
         <Route
           path="/logout"
           element={<Logout loginStorageKey={LOGIN_STORAGE_KEY} />}
-        />
+        />*/}
         <Route
           exact
           path="/"
@@ -42,7 +38,7 @@ const App = () => {
             />
           }
         />
-      </Routes> */}
+      </Routes>
     </div>
   );
 };

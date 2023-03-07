@@ -142,7 +142,7 @@ const Home = ({ loginStorageKey, loginStorageValue }) => {
   return (
     <div className="home-page">
       <div className="top-bar">
-        <span className="logo">ToDo</span>
+        <span className="logo">ToDo 1</span>
         <Link className="btn danger sm" to="/logout">
           Logout
         </Link>
