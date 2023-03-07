@@ -17,7 +17,7 @@ const Login = ({ loginStorageKey, loginStorageValue }) => {
     const isLoggedIn =
       localStorage.getItem(loginStorageKey) === loginStorageValue;
     if (isLoggedIn) {
-      navigate("/");
+      navigate("/todo/");
     }
   }, [loginStorageKey, loginStorageValue, navigate]);
 
@@ -25,7 +25,7 @@ const Login = ({ loginStorageKey, loginStorageValue }) => {
     e.preventDefault();
     if (email === "test@test.com" && password === "test") {
       localStorage.setItem(loginStorageKey, loginStorageValue);
-      navigate("/");
+      navigate("/todo/");
     }
   };
 
