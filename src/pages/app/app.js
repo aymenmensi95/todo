@@ -29,6 +29,7 @@ const App = () => {
           element={<Logout loginStorageKey={LOGIN_STORAGE_KEY} />}
         />
         <Route
+          exact
           path="/"
           element={
             <Home
