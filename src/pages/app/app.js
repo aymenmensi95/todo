@@ -14,6 +14,7 @@ const LOGIN_STORAGE_VALUE = "logged";
 const App = () => {
   return (
     <div className="app">
+      Hello
       <Routes>
         <Route
           path="/login"
