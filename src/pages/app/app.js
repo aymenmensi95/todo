@@ -1,21 +1,21 @@
 import * as React from "react";
 
-import { Routes, Route } from "react-router-dom";
+// import { Routes, Route } from "react-router-dom";
 
-import Login from "../login";
-import Logout from "../logout";
-import Home from "../home";
+// import Login from "../login";
+// import Logout from "../logout";
+// import Home from "../home";
 
-import "./styles.scss";
+// import "./styles.scss";
 
-const LOGIN_STORAGE_KEY = "login-todo";
-const LOGIN_STORAGE_VALUE = "logged";
+// const LOGIN_STORAGE_KEY = "login-todo";
+// const LOGIN_STORAGE_VALUE = "logged";
 
 const App = () => {
   return (
     <div className="app">
       Hello
-      <Routes>
+      {/* <Routes>
         <Route
           path="/login"
           element={
@@ -39,7 +39,7 @@ const App = () => {
             />
           }
         />
-      </Routes>
+      </Routes> */}
     </div>
   );
 };
