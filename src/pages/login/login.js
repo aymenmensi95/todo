@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { navigate } from "@reach/router";
+import { useNavigate } from "react-router-dom";
 
 import Input from "../../components/input/input";
 import Button from "../../components/button";
@@ -11,13 +11,15 @@ const Login = ({ loginStorageKey, loginStorageValue }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     const isLoggedIn =
       localStorage.getItem(loginStorageKey) === loginStorageValue;
     if (isLoggedIn) {
       navigate("/");
     }
-  }, [loginStorageKey, loginStorageValue]);
+  }, [loginStorageKey, loginStorageValue, navigate]);
 
   const onSubmit = (e) => {
     e.preventDefault();
