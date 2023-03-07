@@ -4,17 +4,20 @@ import * as React from "react";
 
 // import Login from "../login";
 // import Logout from "../logout";
-// import Home from "../home";
+import Home from "../home";
 
 // import "./styles.scss";
 
-// const LOGIN_STORAGE_KEY = "login-todo";
-// const LOGIN_STORAGE_VALUE = "logged";
+const LOGIN_STORAGE_KEY = "login-todo";
+const LOGIN_STORAGE_VALUE = "logged";
 
 const App = () => {
   return (
     <div className="app">
-      Hello 222
+      <Home
+        loginStorageKey={LOGIN_STORAGE_KEY}
+        loginStorageValue={LOGIN_STORAGE_VALUE}
+      />{" "}
       {/* <Routes>
         <Route
           path="/login"
