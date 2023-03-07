@@ -30,7 +30,7 @@ const App = () => {
         />*/}
         <Route
           exact
-          path="/"
+          path="/todo"
           element={
             <Home
               loginStorageKey={LOGIN_STORAGE_KEY}
