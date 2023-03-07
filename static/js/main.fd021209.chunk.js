@@ -1,0 +1,2 @@
+(this["webpackJsonpto-do"]=this["webpackJsonpto-do"]||[]).push([[0],{10:function(e,t,c){},11:function(e,t,c){"use strict";c.r(t);var n=c(0),o=c(3),s=c.n(o),r=c(4),i=c(1),d=function(){return Object(i.jsx)("div",{className:"app",children:"Hello"})};c(10);s.a.render(Object(i.jsx)(n.StrictMode,{children:Object(i.jsx)(r.a,{children:Object(i.jsx)(d,{})})}),document.getElementById("root"))}},[[11,1,2]]]);
+//# sourceMappingURL=main.fd021209.chunk.js.map
