@@ -20,7 +20,7 @@ const Home = ({ loginStorageKey, loginStorageValue }) => {
     const isLoggedIn =
       localStorage.getItem(loginStorageKey) === loginStorageValue;
     if (!isLoggedIn) {
-      navigate("/login");
+      navigate("/todo/login");
     }
   }, [loginStorageKey, loginStorageValue, navigate]);
 
