@@ -1,13 +1,13 @@
-import { useEffect } from "react"
-import { navigate } from "@reach/router"
+import * as React from "react";
+import { navigate } from "@reach/router";
 
-const Logout = ({loginStorageKey}) => {
-  useEffect(() => {
-      localStorage.setItem(loginStorageKey, '')
-      navigate('/login')
-  }, [loginStorageKey])
+const Logout = ({ loginStorageKey }) => {
+  React.useEffect(() => {
+    localStorage.setItem(loginStorageKey, "");
+    navigate("/login");
+  }, [loginStorageKey]);
 
-  return null
-}
+  return null;
+};
 
-export default Logout
+export default Logout;

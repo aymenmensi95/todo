@@ -1,38 +1,41 @@
-import { useEffect, useMemo, useRef } from "react"
+import * as React from "react";
 
 const useClickOutside = (closeFunc, ScrollingElement) => {
-  const ScrollingElementNode = useMemo(() => ScrollingElement || document.body, [ScrollingElement])
-  const node = useRef()
+  const ScrollingElementNode = React.useMemo(
+    () => ScrollingElement || document.body,
+    [ScrollingElement]
+  );
+  const node = React.useRef();
 
-  const handleClickOutside = e => {
-    if (node.current.contains(e.target)) {
-      return
-    }
-    closeFunc(e)
-  }
+  React.useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (node.current.contains(e.target)) {
+        return;
+      }
+      closeFunc(e);
+    };
 
-  const handleLossOfFocus = e => {
-    closeFunc(e)
-  }
+    const handleLossOfFocus = (e) => {
+      closeFunc(e);
+    };
 
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside)
-    document.addEventListener('scroll', handleLossOfFocus)
-    window.addEventListener('resize', handleLossOfFocus)
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("scroll", handleLossOfFocus);
+    window.addEventListener("resize", handleLossOfFocus);
     if (ScrollingElementNode) {
-      ScrollingElementNode.addEventListener('scroll', handleLossOfFocus)
+      ScrollingElementNode.addEventListener("scroll", handleLossOfFocus);
     }
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-      document.removeEventListener('scroll', handleLossOfFocus)
-      window.removeEventListener('resize', handleLossOfFocus)
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("scroll", handleLossOfFocus);
+      window.removeEventListener("resize", handleLossOfFocus);
       if (ScrollingElementNode) {
-        ScrollingElementNode.removeEventListener('scroll', handleLossOfFocus)
+        ScrollingElementNode.removeEventListener("scroll", handleLossOfFocus);
       }
-    }
-  }, [ScrollingElementNode])
+    };
+  }, [ScrollingElementNode, closeFunc]);
 
-  return node
-}
+  return node;
+};
 
-export default useClickOutside
+export default useClickOutside;

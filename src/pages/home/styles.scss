@@ -1,4 +1,4 @@
-@import '../../styles/variables';
+@import "../../styles/variables";
 
 .home-page {
   .top-bar {
@@ -79,16 +79,30 @@
       }
 
       .title {
+        display: flex;
+        align-items: baseline;
+        overflow: hidden;
+        flex: 0 0 80%;
+        gap: 8px;
+
+        span {
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
         @media (max-width: $bp-sm) {
           margin-bottom: 8px;
-          flex: 1 1 100%;
+          flex: 1 0 100%;
         }
       }
 
       .actions {
         display: inline-flex;
         align-items: center;
+        gap: 16px;
+
         @media (max-width: $bp-sm) {
+          margin-top: 8px;
           margin-left: auto;
         }
 
@@ -98,12 +112,6 @@
           font-size: 12px;
           line-height: 1;
           cursor: pointer;
-          margin: 0 16px;
-
-          @media (max-width: $bp-sm) {
-            font-size: 11px;
-            margin: 0 8px;
-          }
 
           &:hover {
             text-decoration: underline;

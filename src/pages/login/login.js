@@ -1,42 +1,60 @@
-import { useEffect, useState } from 'react'
-import { navigate } from '@reach/router'
+import { useEffect, useState } from "react";
+import { navigate } from "@reach/router";
 
-import Input from '../../components/input/input'
-import Button from '../../components/button'
-import Footer from '../../components/footer/footer'
+import Input from "../../components/input/input";
+import Button from "../../components/button";
+import Footer from "../../components/footer/footer";
 
-import './styles.scss'
+import "./styles.scss";
 
 const Login = ({ loginStorageKey, loginStorageValue }) => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
- 
-  useEffect(() => {
-    const isLoggedIn = localStorage.getItem(loginStorageKey) === loginStorageValue
-    if(isLoggedIn) {
-     navigate('/')
-    }
-   }, [loginStorageKey, loginStorageValue])
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const onSubmit = e => {
-    e.preventDefault()
-    if(email === 'test@test.com' && password === 'test') {
-      localStorage.setItem(loginStorageKey, loginStorageValue)
-      navigate('/')
+  useEffect(() => {
+    const isLoggedIn =
+      localStorage.getItem(loginStorageKey) === loginStorageValue;
+    if (isLoggedIn) {
+      navigate("/");
     }
-  }
+  }, [loginStorageKey, loginStorageValue]);
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    if (email === "test@test.com" && password === "test") {
+      localStorage.setItem(loginStorageKey, loginStorageValue);
+      navigate("/");
+    }
+  };
 
   return (
     <div className="login-page">
       <form onSubmit={onSubmit}>
         <h1>Welcome To ToDo</h1>
-        <Input name="email" placeholder="E-mail" type="email" value={email} onChange={value => setEmail(value)} required autoFocus />
-        <Input name="password" placeholder="Password" className="password-input" type="password" value={password} onChange={value => setPassword(value)} required autoFocus />
+        <Input
+          name="email"
+          placeholder="E-mail"
+          type="email"
+          value={email}
+          onChange={(value) => setEmail(value)}
+          required
+          autoFocus
+        />
+        <Input
+          name="password"
+          placeholder="Password"
+          className="password-input"
+          type="password"
+          value={password}
+          onChange={(value) => setPassword(value)}
+          required
+          autoFocus
+        />
         <Button type="submit">Login</Button>
         <Footer />
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;

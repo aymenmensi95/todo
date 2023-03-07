@@ -1,3 +1,3 @@
-import AddTaskForm from "./add-task-form"
+import AddTaskForm from "./add-task-form";
 
-export default AddTaskForm
+export default AddTaskForm;
