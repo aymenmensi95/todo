@@ -1,5 +1,8 @@
 import * as React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import {
+  Link,
+  //  useNavigate
+} from "react-router-dom";
 
 import DeleteBtn from "../../components/delete-btn/delete-btn";
 import AddTaskForm from "../../components/add-task-form";
@@ -14,15 +17,15 @@ const Home = ({ loginStorageKey, loginStorageValue }) => {
   const [ASC, setASC] = React.useState(true);
   const [toEdit, setToEdit] = React.useState(null);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  React.useEffect(() => {
-    const isLoggedIn =
-      localStorage.getItem(loginStorageKey) === loginStorageValue;
-    if (!isLoggedIn) {
-      navigate("/login");
-    }
-  }, [loginStorageKey, loginStorageValue, navigate]);
+  // React.useEffect(() => {
+  //   const isLoggedIn =
+  //     localStorage.getItem(loginStorageKey) === loginStorageValue;
+  //   if (!isLoggedIn) {
+  //     navigate("/login");
+  //   }
+  // }, [loginStorageKey, loginStorageValue, navigate]);
 
   React.useEffect(() => {
     const data = localStorage.getItem(DATA_STORAGE_KEY);
