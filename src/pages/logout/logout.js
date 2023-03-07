@@ -1,11 +1,13 @@
 import * as React from "react";
-import { navigate } from "@reach/router";
+import { useNavigate } from "react-router-dom";
 
 const Logout = ({ loginStorageKey }) => {
+  const navigate = useNavigate();
+
   React.useEffect(() => {
     localStorage.setItem(loginStorageKey, "");
     navigate("/login");
-  }, [loginStorageKey]);
+  }, [loginStorageKey, navigate]);
 
   return null;
 };

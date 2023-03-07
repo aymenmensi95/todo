@@ -1,5 +1,6 @@
 import * as React from "react";
-import { navigate, Router } from "@reach/router";
+
+import { Routes, Route } from "react-router-dom";
 
 import Login from "../login";
 import Logout from "../logout";
@@ -11,25 +12,32 @@ const LOGIN_STORAGE_KEY = "login-todo";
 const LOGIN_STORAGE_VALUE = "logged";
 
 const App = () => {
-  React.useEffect(() => {
-    const isLoggedIn =
-      localStorage.getItem(LOGIN_STORAGE_KEY) === LOGIN_STORAGE_VALUE;
-    if (!isLoggedIn) {
-      navigate("/login");
-    }
-  }, []);
-
   return (
     <div className="app">
-      <Router>
-        <Login
+      <Routes>
+        <Route
           path="/login"
-          loginStorageKey={LOGIN_STORAGE_KEY}
-          loginStorageValue={LOGIN_STORAGE_VALUE}
+          element={
+            <Login
+              loginStorageKey={LOGIN_STORAGE_KEY}
+              loginStorageValue={LOGIN_STORAGE_VALUE}
+            />
+          }
         />
-        <Logout path="/logout" loginStorageKey={LOGIN_STORAGE_KEY} />
-        <Home path="/" />
-      </Router>
+        <Route
+          path="/logout"
+          element={<Logout loginStorageKey={LOGIN_STORAGE_KEY} />}
+        />
+        <Route
+          path="/"
+          element={
+            <Home
+              loginStorageKey={LOGIN_STORAGE_KEY}
+              loginStorageValue={LOGIN_STORAGE_VALUE}
+            />
+          }
+        />
+      </Routes>
     </div>
   );
 };
