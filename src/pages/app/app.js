@@ -15,30 +15,28 @@ const App = () => {
   return (
     <div className="app">
       <Routes>
-        <Route path="/todo">
-          <Route
-            path="/todo/login"
-            element={
-              <Login
-                loginStorageKey={LOGIN_STORAGE_KEY}
-                loginStorageValue={LOGIN_STORAGE_VALUE}
-              />
-            }
-          />
-          <Route
-            path="/todo/logout"
-            element={<Logout loginStorageKey={LOGIN_STORAGE_KEY} />}
-          />
-          <Route
-            path="/todo/"
-            element={
-              <Home
-                loginStorageKey={LOGIN_STORAGE_KEY}
-                loginStorageValue={LOGIN_STORAGE_VALUE}
-              />
-            }
-          />
-        </Route>
+        <Route
+          path="/login"
+          element={
+            <Login
+              loginStorageKey={LOGIN_STORAGE_KEY}
+              loginStorageValue={LOGIN_STORAGE_VALUE}
+            />
+          }
+        />
+        <Route
+          path="/logout"
+          element={<Logout loginStorageKey={LOGIN_STORAGE_KEY} />}
+        />
+        <Route
+          path="/"
+          element={
+            <Home
+              loginStorageKey={LOGIN_STORAGE_KEY}
+              loginStorageValue={LOGIN_STORAGE_VALUE}
+            />
+          }
+        />
       </Routes>
     </div>
   );

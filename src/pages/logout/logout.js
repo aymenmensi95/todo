@@ -6,7 +6,7 @@ const Logout = ({ loginStorageKey }) => {
 
   React.useEffect(() => {
     localStorage.setItem(loginStorageKey, "");
-    navigate("/todo/login");
+    navigate("/login");
   }, [loginStorageKey, navigate]);
 
   return null;
